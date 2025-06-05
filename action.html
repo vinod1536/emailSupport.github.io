@@ -1,0 +1,24 @@
+<!-- action.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Action Handler</title>
+    <script>
+      // Read `type` from URL like ?type=approve
+      const urlParams = new URLSearchParams(window.location.search);
+      const action = urlParams.get("type");
+
+      if (action) {
+        // Try to open the Flutter app using a custom scheme
+        window.location.href = `myapp://action?type=${action}`;
+        // Fallback message
+        setTimeout(() => {
+          document.body.innerHTML = `<h2>Trying to open the app for '${action}'...</h2>`;
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Processing...</h1>
+  </body>
+</html>
