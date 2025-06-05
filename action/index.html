@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Action Result</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Action Result</h1>
+  <div id="result"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    if (type === "approve") {
+      document.getElementById("result").innerHTML = "<h2>✅ You approved the request!</h2>";
+    } else if (type === "reject") {
+      document.getElementById("result").innerHTML = "<h2>❌ You rejected the request.</h2>";
+    } else {
+      document.getElementById("result").innerHTML = "<h2>❓ Unknown action.</h2>";
+    }
+  </script>
+</body>
+</html>
